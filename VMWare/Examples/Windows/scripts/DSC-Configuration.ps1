@@ -28,7 +28,7 @@ Configuration DSC-Configuration
         }
         # Set Chocolatey Source
         cChocoSource Repo {
-            Name   = 'EssentRepo'
+            Name   = 'Repo'
             Source = 'https://chocolatey.org/api/v2'
             
         }
