@@ -98,14 +98,14 @@ if ($env:COMPUTERNAME -ne $ServerName) {
 
 # Joining to Domain
 $domain = (Get-WmiObject Win32_ComputerSystem).Domain
-if ($domain -ne 'ad.essent.us') {
+if ($domain -ne 'ad.YourDomain.us') {
     $ConfigStep = 'JoinDomain'
     # Define Domain Admin credentials for Domain Join and Auto Login
     $username = '__domain_admin__'
     $password = '__domain_admin_password__' | ConvertTo-SecureString -asPlainText -Force
     [PSCredential] $Credential = New-Object System.Management.Automation.PSCredential($username, $password)
-    Write-Log -message "Joining Server to ad.essent.us Domain."
-    Add-Computer -DomainName "ad.essent.us" -Credential $Credential -OUPath "OU=Servers,OU=Corporate,DC=ad,DC=essent,DC=us"
+    Write-Log -message "Joining Server to ad.YourDomain.us Domain."
+    Add-Computer -DomainName "ad.YourDomain.us" -Credential $Credential -OUPath "OU=Servers,OU=Corporate,DC=ad,DC=YourDomain,DC=us"
     # Redefine password variable for Auto Login
     # Define Local Administrator credentials for Auto Login
     $username = 'Administrator'

@@ -398,7 +398,7 @@ Write-Host "$GetIp"
 
 # Move to Corporate DevOps OU
 $ServerIdentity = (Get-ADComputer -Identity $ServerName)
-$DestinationOU = "OU=DevOps,OU=Servers,OU=Corporate,DC=ad,DC=essent,DC=us"
+$DestinationOU = "OU=DevOps,OU=Servers,OU=Corporate,DC=ad,DC=YourDomain,DC=us"
 
 if ($ServerIdentity.DistinguishedName -ne "CN=$Servername,$DestinationOU") {
     Write-Host "Moving $ServerName to $DestinationOU"
